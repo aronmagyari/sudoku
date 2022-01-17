@@ -1,36 +1,45 @@
 // hello world test
 app = document.getElementById('app');
 
-// generate main table 
-var mainTable = [];
+// generate a 2D array of Valid sudoku solution
+function generateSolution() { 
+    var solution = [];
 
-// create 9 rows with 9 cells in each
-for (var x  = 0; x < 9; x++){
-    var row = [];
-
-    for (var y = 0; y < 9; y++){
-        row[y] = (x * 9) + (y + 1);
+    // create 9 rows with 9 cells in each
+    for (var x  = 0; x < 9; x++){
+        var row = [];
+        for (var y = 0; y < 9; y++){
+            row[y] = (x * 9) + (y + 1);
+        }
+        solution[x] = row;
     }
 
-    mainTable[x] = row;
+    return solution;
 }
 
-// display main table
-var mainTableElement = document.createElement('div');
-mainTableElement.setAttribute('id', 'main-table');
+// display solution to BOM
+function displaySolution(solution, container) {
+    var table = document.createElement('div');
+    table.setAttribute('id', 'main-table');
 
-for (var x = 0; x < 9; x++){
-    var row = document.createElement('div');
-        row.setAttribute('class', 'row');
+    for (var x = 0; x < 9; x++){
 
-    for (var y = 0; y < 9; y++){
-        var cell = document.createElement('div');
-        cell.setAttribute('class', 'cell');
-        cell.innerHTML = mainTable[x][y];
-        row.appendChild(cell);
+        var row = document.createElement('div');
+            row.setAttribute('class', 'row');
+
+        for (var y = 0; y < 9; y++){
+            var cell = document.createElement('div');
+            cell.setAttribute('class', 'cell');
+            cell.innerHTML = newSolution[x][y];
+            row.appendChild(cell);
+        }
+
+        table.appendChild(row);
+
     }
 
-    mainTableElement.appendChild(row);
+    container.appendChild(table);
 }
 
-app.appendChild(mainTableElement);
+var newSolution = generateSolution();
+displaySolution(newSolution, app);
