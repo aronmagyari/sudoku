@@ -1,3 +1,22 @@
-#app {
-    background-color: #eeeeee;
-}
+* {
+    font-family: helvetica;
+ }
+ 
+ #main-table {
+     border: 1px solid #aaa;
+     display: inline-grid;
+ }
+ 
+ .row {
+     border: 1px solid #bbb;
+     display: inline-block;
+ }
+ 
+ .row .cell {
+     border: 1px solid #ccc;
+     height: 30px;
+     width: 30px;
+     display: inline-block;
+     text-align: center;
+     line-height: 2;
+ }
