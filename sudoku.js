@@ -17,8 +17,8 @@ function generateSolution() {
     return solution;
 }
 
-// display solution to BOM
-function displaySolution(solution, container) {
+// generate BOM table for solution
+function generateBomTable(solution) {
     var table = document.createElement('div');
     table.setAttribute('id', 'main-table');
 
@@ -38,8 +38,8 @@ function displaySolution(solution, container) {
 
     }
 
-    container.appendChild(table);
+    return table;
 }
 
 var newSolution = generateSolution();
-displaySolution(newSolution, app);
+app.appendChild(generateBomTable(newSolution));
