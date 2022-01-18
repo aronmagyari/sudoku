@@ -1,5 +1,21 @@
 // hello world test
-app = document.getElementById('app');
+puzzle = document.getElementById('puzzle');
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+// enter number into puzzle
+function enterNumberIntoSolution(num, sol) {
+
+    for (var row of sol) {
+        var index = getRandomInt(9);
+
+        row[index] = num;
+        
+    }
+
+}
 
 // generate a 2D array of Valid sudoku solution
 function generateSolution() { 
@@ -9,10 +25,12 @@ function generateSolution() {
     for (var x  = 0; x < 9; x++){
         var row = [];
         for (var y = 0; y < 9; y++){
-            row[y] = (x * 9) + (y + 1);
+            row[y] = 0;
         }
         solution[x] = row;
     }
+
+    enterNumberIntoSolution(1,solution);
 
     return solution;
 }
@@ -42,4 +60,4 @@ function generateBomTable(solution) {
 }
 
 var newSolution = generateSolution();
-app.appendChild(generateBomTable(newSolution));
+puzzle.appendChild(generateBomTable(newSolution));
