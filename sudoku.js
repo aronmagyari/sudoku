@@ -5,14 +5,22 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+function removeNumberFromArray(num, arr) {
+    const index = arr.indexOf(num);
+        if (index > -1) {
+        arr.splice(index, 1);
+        }
+}
+
 // enter number into puzzle
 function enterNumberIntoSolution(num, sol) {
-
+    var availableColumns = [0,1,2,3,4,5,6,7,8];
     for (var row of sol) {
-        var index = getRandomInt(9);
 
+        var index = availableColumns[getRandomInt(availableColumns.length)];
         row[index] = num;
-        
+        removeNumberFromArray(index, availableColumns);
+
     }
 
 }
