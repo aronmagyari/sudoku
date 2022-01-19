@@ -1,5 +1,5 @@
 var puzzle = (function() {
-    
+
     // get random integer
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -14,6 +14,36 @@ var puzzle = (function() {
             }
     }
 
+
+
+    // create a blank solution
+    function generateBlank() {
+        var blank = [];
+        var rowCounter = 1;
+        var columnCounter = 1;
+
+        for (var x = 0; x < 81; x++) {
+            var cell = {};
+
+            // set row and column numbers for cells
+            cell.row = rowCounter;
+            cell.column = columnCounter++;
+            if (columnCounter > 9)  {
+                columnCounter = 1;
+                rowCounter++;
+            }
+            
+            // TODO: set block number for cells
+            // cell.block = 1;
+
+            // set array of valid numbers that can still go in cell
+            cell.options = [1,2,3,4,5,6,7,8,9];
+
+            blank.push(cell);
+        }
+
+        return blank;
+    }
 
 
     // generate a 2D array of Valid sudoku solution
@@ -53,7 +83,8 @@ var puzzle = (function() {
 
     // return
     return {
-        generateSolution: generateSolution
+        generateSolution: generateSolution,
+        generateBlank: generateBlank
     }
 
 })();
