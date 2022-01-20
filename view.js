@@ -7,7 +7,7 @@ var view = (function(solution){
 
         for (var x = 0; x < solution.length; x++){
             var p = document.createElement('p');
-            p.innerHTML = solution[x].block;
+            p.innerHTML = solution[x].entry || '';
             var cellDiv = document.createElement('div');
             cellDiv.setAttribute('class', 'cell');
             cellDiv.appendChild(p);
