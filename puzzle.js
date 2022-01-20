@@ -15,6 +15,28 @@ var puzzle = (function() {
     }
 
 
+    // calculate cell block 
+    function calculateBlock(row, col) {
+        
+        function classifyThirds(num) {
+            if (num <= 3) {
+                num = 1
+            } else if (num <= 6) {
+                num = 2
+            } else {
+                num = 3
+            }
+            return num;
+        }
+
+        var x = classifyThirds(col);
+        var y = classifyThirds(row);
+        var block = ((y * 3) - 3) + x;
+        return block;
+
+    }
+
+
 
     // create a blank solution
     function generateBlank() {
@@ -24,20 +46,25 @@ var puzzle = (function() {
 
         for (var x = 0; x < 81; x++) {
             var cell = {};
+            cell.index = x;
 
             // set row and column numbers for cells
             cell.row = rowCounter;
-            cell.column = columnCounter++;
+            cell.column = columnCounter;
             if (columnCounter > 9)  {
                 columnCounter = 1;
                 rowCounter++;
             }
-            
-            // TODO: set block number for cells
-            // cell.block = 1;
 
             // set array of valid numbers that can still go in cell
             cell.options = [1,2,3,4,5,6,7,8,9];
+
+            // create placeholder for other cell properties
+            cell.block = calculateBlock(rowCounter, columnCounter);
+            cell.solution = 0;
+            cell.entry = 0;
+
+            columnCounter++;
 
             blank.push(cell);
         }

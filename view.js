@@ -5,19 +5,13 @@ var view = (function(solution){
         var table = document.createElement('div');
         table.setAttribute('id', 'main-table');
 
-        for (var x = 0; x < 9; x++){
-
-            var row = document.createElement('div');
-                row.setAttribute('class', 'row');
-
-            for (var y = 0; y < 9; y++){
-                var cell = document.createElement('div');
-                cell.setAttribute('class', 'cell');
-                cell.innerHTML = newSolution[x][y];
-                row.appendChild(cell);
-            }
-
-            table.appendChild(row);
+        for (var x = 0; x < solution.length; x++){
+            var p = document.createElement('p');
+            p.innerHTML = solution[x].block;
+            var cellDiv = document.createElement('div');
+            cellDiv.setAttribute('class', 'cell');
+            cellDiv.appendChild(p);
+            table.appendChild(cellDiv);
 
         }
 
