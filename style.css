@@ -1,27 +1,47 @@
 * {
-    font-family: monospace;
- }
- 
- #main-table {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto;
-    background-color: #2196F3;
-    padding: 10px;
-    height: 90vh;
-    width: 90vh;
- }
- 
-.cell {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    text-align: center;
-    display: table;
- }
+   font-family: monospace;
+}
 
- .cell p {
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-    font-size: xx-large;
- }
+#main-table {
+   display: grid;
+   grid-template-columns: auto auto auto auto auto auto auto auto auto;
+   background-color: #2196F3;
+   padding: 10px;
+   height: 90vh;
+   width: 90vh;
+}
+
+.cell {
+   background-color: rgba(255, 255, 255, 0.8);
+   border: 1px solid #2196F3;
+   text-align: center;
+   display: table;
+}
+
+.cell p {
+   text-align: center;
+   vertical-align: middle;
+   display: table-cell;
+   font-size: xx-large;
+}
+
+/* add guide lines every third row and column */
+
+.cell:nth-child(3n+3) {
+   border-right: 3px solid #2096f3;
+}
+
+.cell:nth-child(3n-2) {
+   border-left: 3px solid #2096f3;
+}
+
+.guide-below {
+   border-bottom: 3px solid #2096f3;
+}
+
+.guide-above {
+   border-top: 3px solid #2096f3;
+}
+
+
 

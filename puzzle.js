@@ -49,12 +49,13 @@ var puzzle = (function() {
             cell.index = x;
 
             // set row and column numbers for cells
-            cell.row = rowCounter;
-            cell.column = columnCounter;
             if (columnCounter > 9)  {
                 columnCounter = 1;
                 rowCounter++;
             }
+
+            cell.row = rowCounter;
+            cell.column = columnCounter;
 
             // set array of valid numbers that can still go in cell
             cell.options = [1,2,3,4,5,6,7,8,9];

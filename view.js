@@ -10,6 +10,11 @@ var view = (function(solution){
             p.innerHTML = solution[x].entry || '';
             var cellDiv = document.createElement('div');
             cellDiv.setAttribute('class', 'cell');
+            if (solution[x].row % 3 == 0 && solution[x].index < 55) {
+                cellDiv.setAttribute('class', 'cell guide-below');
+            } else if (solution[x].row % 3 == 1 && solution[x].index < 63) {
+                cellDiv.setAttribute('class', 'cell guide-above');
+            }
             cellDiv.appendChild(p);
             table.appendChild(cellDiv);
 
